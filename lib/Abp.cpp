@@ -112,7 +112,7 @@ void Abp::showBalance_(Node *root)
     if (root == NULL)
         return;
     showBalance_(root->left);
-    cout << root->value << ":" << diff(root) << " ";
+    cout << root->value << ":" << diff(root) << " | ";
     showBalance_(root->right);
 }
 //------------------------------------------------------------

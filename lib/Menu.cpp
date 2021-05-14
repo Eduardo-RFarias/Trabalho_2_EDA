@@ -1,6 +1,6 @@
 #include "Menu.hpp"
 
-void Menu::show()
+void Menu::show() // Imprime Menu
 {
 
     printTitulo("Menu");
@@ -54,11 +54,11 @@ void Menu::retorna() //Pausa o terminal ate que o usuario aperte enter e volte a
 
     // Espera uma input do usuario e pausa o terminal
     cin.get();
-    //cin.get();
+    cin.get();
     clear();
 }
 
-void Menu::lerValores()
+void Menu::case_1() // Gerar ABP
 {
     string nomeArq;
     FILE *fp = NULL;
@@ -75,6 +75,8 @@ void Menu::lerValores()
         }
         else
         {
+            clear();
+            separaTexto();
             cout << "Arquivo encontrado!" << endl;
             break;
         }
@@ -102,4 +104,22 @@ void Menu::lerValores()
     // Inserindo o último número na árvore.
     sscanf(cur, "%d", &valor);
     this->arvoreAvl.insert(valor);
+    retorna();
+}
+
+void Menu::case_2() // Calcular Fator de Balanceamento
+{
+    clear();
+    printTitulo("Calcular Fator de Balanceamento");
+    cout << "Fator de Balanceamento (Valor:FatBal) : " << endl;
+    arvoreAvl.showBalance();
+    retorna();
+}
+
+void Menu::case_3() // Imprimir ABP
+{
+    clear();
+    printTitulo("Imprimir ABP");
+    arvoreAvl.display();
+    retorna();
 }
