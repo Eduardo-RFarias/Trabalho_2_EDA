@@ -28,7 +28,7 @@ int main(int argc, char const *argv[])
             cout << "";
             break;
         default:
-            cout << "ERRO: Opcao invalida\n";
+            cout << "ERRO: Opcao invalida" << endl;
         }
     } while (option != 4);
 

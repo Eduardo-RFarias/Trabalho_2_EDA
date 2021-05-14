@@ -4,9 +4,9 @@ void Menu::show()
 {
 
     printTitulo("Menu");
-    cout << ".1 - Gerar ABP\n"
-         << ".2 - Calcular fator de balanceamento:\n"
-         << ".3 - Imprime ABP:\n"
+    cout << ".1 - Gerar ABP" << endl
+         << ".2 - Calcular fator de balanceamento:" << endl
+         << ".3 - Imprime ABP:" << endl
          << ".4 - Sair" << endl;
     separaTexto();
 }
@@ -24,7 +24,8 @@ void Menu::clear() // Limpa o Terminal
 
 void Menu::separaTexto() // Imprime uma serie de - para separar o texto
 {
-    cout << "\n------------------------------------------------------------\n";
+    cout << endl
+         << "------------------------------------------------------------" << endl;
 }
 
 void Menu::printTitulo(string titulo) // Formata Titulo ao meio da pagina
@@ -59,22 +60,22 @@ void Menu::retorna() //Pausa o terminal ate que o usuario aperte enter e volte a
 
 void Menu::lerValores()
 {
-    char nomeArq[50];
+    string nomeArq;
     FILE *fp = NULL;
 
     do
     {
-        printf("Insira o nome do arquivo: ");
-        scanf("%s", nomeArq);
-        fp = fopen(nomeArq, "r");
+        cout << "Insira o nome do arquivo: ";
+        cin >> nomeArq;
+        fp = fopen(nomeArq.c_str(), "r");
 
         if (fp == NULL)
         {
-            printf("Nome do arquivo invalido. Tente novamente\n");
+            cout << "Nome do arquivo invalido. Tente novamente" << endl;
         }
         else
         {
-            printf("Arquivo encontrado!\n");
+            cout << "Arquivo encontrado!" << endl;
             break;
         }
     } while (fp == NULL);
