@@ -7,7 +7,7 @@ void Menu::show()
     cout << ".1 - Gerar ABP\n"
          << ".2 - Calcular fator de balanceamento:\n"
          << ".3 - Imprime ABP:\n"
-         << ".4 - Sair";
+         << ".4 - Sair" << endl;
     separaTexto();
 }
 
@@ -55,4 +55,48 @@ void Menu::retorna() //Pausa o terminal ate que o usuario aperte enter e volte a
     cin.get();
     //cin.get();
     clear();
+}
+
+void Menu::lerValores()
+{
+    char nomeArq[50];
+    FILE *fp = NULL;
+
+    do
+    {
+        printf("Insira o nome do arquivo: ");
+        scanf("%s", nomeArq);
+        fp = fopen(nomeArq, "r");
+
+        if (fp == NULL)
+        {
+            printf("Nome do arquivo invalido. Tente novamente\n");
+        }
+        else
+        {
+            printf("Arquivo encontrado!\n");
+            break;
+        }
+    } while (fp == NULL);
+
+    char cur[10];
+    int c, valor, pos = 0;
+
+    while ((c = fgetc(fp)) != EOF)
+    {
+        if (c == ',')
+        {
+            cur[pos] = '\0';
+            pos = 0;
+            sscanf(cur, "%d", &valor);
+            this->arvoreAvl.insert(valor);
+        }
+        else if (c > 47 && c < 58)
+        {
+            cur[pos] = c;
+            pos++;
+        }
+    }
+    sscanf(cur, "%d", &valor);
+    this->arvoreAvl.insert(valor);
 }

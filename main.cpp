@@ -10,17 +10,13 @@ int main(int argc, char const *argv[])
     menu.show();
     do
     {
-        cout << "Digite a Opcao : ";
+        cout << "Digite a Opcao : " << endl;
         cin >> option;
         switch (option)
         {
 
         case 1:
-            for (int i = 1; i < 13; i++)
-            {
-                cout << i << "\t";
-                menu.arvoreAvl.insert(i);
-            }
+            menu.lerValores();
             break;
         case 2:
             menu.arvoreAvl.showBalance();

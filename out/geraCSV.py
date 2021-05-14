@@ -2,7 +2,7 @@ from random import randint
 
 # formato csv: 1230, 129387, 127, 194, 4, 534
 
-arquivo = open('/out/aleatorios.csv', 'w')
+arquivo = open('out/aleatorios.csv', 'w')
 
 tamanho = int(input('digite quantos números você quer no CSV: '))
 
