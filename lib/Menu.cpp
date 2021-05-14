@@ -63,7 +63,7 @@ void Menu::lerValores()
     string nomeArq;
     FILE *fp = NULL;
 
-    do
+    do // Validação do nome do arquivo.
     {
         cout << "Insira o nome do arquivo: ";
         cin >> nomeArq;
@@ -83,21 +83,23 @@ void Menu::lerValores()
     char cur[10];
     int c, valor, pos = 0;
 
-    while ((c = fgetc(fp)) != EOF)
+    while ((c = fgetc(fp)) != EOF) // Percorre arquivo caracter por caracter
     {
-        if (c == ',')
+        if (c == ',') // Se o caracter for uma virgula, transforma o array em um inteiro e insere ele na árvore.
         {
             cur[pos] = '\0';
             pos = 0;
             sscanf(cur, "%d", &valor);
             this->arvoreAvl.insert(valor);
         }
-        else if (c > 47 && c < 58)
+        else if (c > 47 && c < 58) // Se o caracter for um digito, adiciona ele no array do numero atual.
         {
             cur[pos] = c;
             pos++;
         }
     }
+
+    // Inserindo o último número na árvore.
     sscanf(cur, "%d", &valor);
     this->arvoreAvl.insert(valor);
 }
