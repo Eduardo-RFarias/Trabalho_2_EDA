@@ -3,7 +3,12 @@ project(trabalho2 VERSION 0.1.0)
 
 add_library(lib
 lib/Abp.cpp
+lib/Transcritor.cpp
 lib/Menu.cpp
+)
+
+set (
+    CMAKE_RUNTIME_OUTPUT_DIRECTORY "${PROJECT_SOURCE_DIR}/out"
 )
 
 add_executable(trabalho2 main.cpp)
