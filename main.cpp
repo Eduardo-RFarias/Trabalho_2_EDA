@@ -10,7 +10,7 @@ using namespace std;
     - 200042360_Nícolas Roberto de Queiroz
     - 200025937_Paulo Maciel Torres Filho
 
-    README @ https://github.com/Eduardo-RFarias/Trabalho_2_EDA/tree/master
+    Git @ https://github.com/Eduardo-RFarias/Trabalho_2_EDA.git
 */
 
 int main(int argc, char const *argv[])

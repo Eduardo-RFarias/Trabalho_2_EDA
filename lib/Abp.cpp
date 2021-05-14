@@ -7,7 +7,12 @@ Abp::Abp()
 
 Abp::~Abp()
 {
-    free_(this->root);
+    reset();
+}
+
+bool Abp::isEmpty()
+{
+    return this->root == NULL;
 }
 
 void Abp::free_(Node *node)
@@ -19,7 +24,11 @@ void Abp::free_(Node *node)
         delete[] node;
     }
 }
-
+void Abp::reset()
+{
+    free_(this->root);
+    this->root = NULL;
+}
 //------------------------------------------------------------
 void Abp::insert(int value)
 {

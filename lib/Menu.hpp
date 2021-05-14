@@ -5,6 +5,7 @@
 using namespace std;
 
 #include "Abp.hpp"
+#include "Transcritor.hpp"
 
 class Menu
 {

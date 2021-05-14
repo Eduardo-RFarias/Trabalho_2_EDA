@@ -44,6 +44,8 @@ public:
     void remove(int value);
     void display();
     void showBalance();
+    bool isEmpty();
+    void reset();
 };
 
 #endif
