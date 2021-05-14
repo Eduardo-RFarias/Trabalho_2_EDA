@@ -35,10 +35,11 @@ int main(int argc, char const *argv[])
             menu.case_3();
             break;
         case 4: // Sair
-            cout << "Programa Encerrado!";
+            cout << "Programa Encerrado!" << endl;
             break;
         default: // ERRO
-            cout << "ERRO: Opcao invalida" << endl;
+            cout << endl
+                 << "ERRO: Opcao invalida" << endl;
         }
     } while (option != 4);
 

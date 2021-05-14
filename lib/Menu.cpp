@@ -68,6 +68,9 @@ void Menu::case_1() // Gerar ABP
     string nomeArq;
     Transcritor tr;
 
+    clear();
+    printTitulo("Gerar ABP");
+
     do // Validação do nome do arquivo.
     {
         cout << "Insira o nome do arquivo: ";
