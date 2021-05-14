@@ -4,6 +4,7 @@ project(trabalho2 VERSION 0.1.0)
 add_library(lib
 lib/Abp.cpp
 lib/Transcritor.cpp
+lib/Menu.cpp
 )
 
 set (

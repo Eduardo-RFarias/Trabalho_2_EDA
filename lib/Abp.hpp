@@ -18,6 +18,8 @@ private:
 
     Node *root;
 
+    void free_(Node *node);
+
     Node *balance(Node *);
     int height(Node *);
     int diff(Node *);

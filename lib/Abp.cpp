@@ -7,8 +7,19 @@ Abp::Abp()
 
 Abp::~Abp()
 {
-    //TODO
+    free_(this->root);
 }
+
+void Abp::free_(Node *node)
+{
+    if (node != NULL)
+    {
+        free_(node->right);
+        free_(node->left);
+        delete[] node;
+    }
+}
+
 //------------------------------------------------------------
 void Abp::insert(int value)
 {
