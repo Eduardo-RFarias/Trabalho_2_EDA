@@ -1,0 +1,16 @@
+# depslib dependency file v1.0
+1621000834 source:d:\projetos\eda\trabalho_2_eda\lib\abp.cpp
+	"Abp.hpp"
+
+1621000834 d:\projetos\eda\trabalho_2_eda\lib\abp.hpp
+	<iostream>
+
+1621002347 source:d:\projetos\eda\trabalho_2_eda\main.cpp
+	<iostream>
+	"lib/Abp.hpp"
+	"lib/Menu.h"
+
+1621002697 d:\projetos\eda\trabalho_2_eda\lib\menu.h
+	<stdio.h>
+	<stdlib.h>
+
