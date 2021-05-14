@@ -9,13 +9,13 @@ using namespace std;
 class Menu
 {
 private:
-    Abp arvoreAvl;
     void clear();
     void separaTexto();
     void printTitulo(string titulo);
     void retorna();
 
 public:
+    Abp arvoreAvl;
     void show();
 };
 

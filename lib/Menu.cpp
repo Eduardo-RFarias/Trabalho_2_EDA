@@ -7,7 +7,7 @@ void Menu::show()
     cout << ".1 - Gerar ABP\n"
          << ".2 - Calcular fator de balanceamento:\n"
          << ".3 - Imprime ABP:\n"
-         << ".0 - Sair";
+         << ".4 - Sair";
     separaTexto();
 }
 
