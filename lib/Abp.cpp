@@ -24,6 +24,7 @@ void Abp::free_(Node *node)
         delete[] node;
     }
 }
+
 void Abp::reset()
 {
     free_(this->root);
@@ -57,90 +58,59 @@ Abp::Node *Abp::insert_(int value, Node *root)
     return root;
 }
 //------------------------------------------------------------
-void Abp::remove(int value)
+void Abp::displayTree()
 {
-    this->root = remove_(this->root, value);
-}
-Abp::Node *Abp::remove_(Node *t, int x)
-{
-    Node *temp;
-    if (t == NULL)
-        return NULL;
-    else if (x < t->value)
-        t->left = remove_(t->left, x);
-    else if (x > t->value)
-        t->right = remove_(t->right, x);
-    else if (t->left && t->right)
-    {
-        temp = findMin(t->right);
-        t->value = temp->value;
-        t->right = remove_(t->right, t->value);
-    }
-    else
-    {
-        temp = t;
-        if (t->left == NULL)
-            t = t->right;
-        else if (t->right == NULL)
-            t = t->left;
-        delete temp;
-    }
-    if (t == NULL)
-        return t;
-    t = balance(t);
-    return t;
-}
-//------------------------------------------------------------
-void Abp::display()
-{
-    display_(this->root);
+    displayTree_(this->root);
     cout << endl;
 }
-void Abp::display_(Node *ptr, int level)
+void Abp::displayTree_(Node *ptr, int level)
 {
     int i;
     if (ptr != NULL)
     {
-        display_(ptr->right, level + 1);
+        displayTree_(ptr->right, level + 1);
         printf("\n");
         if (ptr == root)
             cout << "Raiz -> ";
         for (i = 0; i < level && ptr != root; i++)
             cout << "        ";
         cout << ptr->value;
-        display_(ptr->left, level + 1);
+        displayTree_(ptr->left, level + 1);
     }
 }
 //------------------------------------------------------------
-void Abp::showBalance()
+void Abp::updateBalFactor()
 {
-    showBalance_(this->root);
+    updateBalFactor_(this->root);
 }
-void Abp::showBalance_(Node *root)
+void Abp::updateBalFactor_(Node *root)
 {
     if (root == NULL)
         return;
-    showBalance_(root->left);
-    cout << root->value << ":" << diff(root) << " | ";
-    showBalance_(root->right);
+
+    root->bal_factor = diff(root);
+
+    updateBalFactor_(root->left);
+    cout << root->value << ":" << root->bal_factor << " | ";
+    updateBalFactor_(root->right);
 }
 //------------------------------------------------------------
 //Helper functions
 Abp::Node *Abp::balance(Node *temp)
 {
+
     int bal_factor = diff(temp);
-    temp->bal_factor = bal_factor;
 
     if (bal_factor > 1)
     {
-        if (diff(temp->left) > 0)
+        if (bal_factor > 0)
             temp = rotateLL(temp);
         else
             temp = rotateLR(temp);
     }
     else if (bal_factor < -1)
     {
-        if (diff(temp->right) > 0)
+        if (bal_factor > 0)
             temp = rotateRL(temp);
         else
             temp = rotateRR(temp);
@@ -161,32 +131,11 @@ int Abp::height(Node *temp)
     return h;
 }
 
-Abp::Node *Abp::findMin(Node *t)
-{
-    if (t == NULL)
-        return NULL;
-    else if (t->left == NULL)
-        return t;
-    else
-        return findMin(t->left);
-}
-
-Abp::Node *Abp::findMax(Node *t)
-{
-    if (t == NULL)
-        return NULL;
-    else if (t->right == NULL)
-        return t;
-    else
-        return findMax(t->right);
-}
-
 int Abp::diff(Node *temp)
 {
     int l_height = height(temp->left);
     int r_height = height(temp->right);
-    int b_factor = l_height - r_height;
-    return b_factor;
+    return l_height - r_height;
 }
 
 //Rotations

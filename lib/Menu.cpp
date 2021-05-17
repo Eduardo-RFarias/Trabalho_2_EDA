@@ -98,8 +98,9 @@ void Menu::case_2() // Calcular Fator de Balanceamento
 {
     clear();
     printTitulo("Calcular Fator de Balanceamento");
-    cout << "Fator de Balanceamento (Valor:FatBal) : " << endl;
-    arvoreAvl.showBalance();
+    cout << '\t' << "Fator de Balanceamento (Valor:FatBal) : \n"
+         << endl;
+    arvoreAvl.updateBalFactor();
     retorna();
 }
 
@@ -107,6 +108,6 @@ void Menu::case_3() // Imprimir ABP
 {
     clear();
     printTitulo("Imprimir ABP");
-    arvoreAvl.display();
+    arvoreAvl.displayTree();
     retorna();
 }

@@ -19,7 +19,7 @@ void Transcritor::gerarAVL(Abp &arvore)
             sscanf(cur, "%d", &valor);
             arvore.insert(valor);
         }
-        else if (c > 47 && c < 58) // Se o caracter for um digito, adiciona ele no array do numero atual.
+        else if ((c > 47 && c < 58) || c == 45) // Se o caracter for um digito, adiciona ele no array do numero atual.
         {
             cur[pos] = c;
             pos++;

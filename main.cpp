@@ -13,6 +13,9 @@ using namespace std;
     Git @ https://github.com/Eduardo-RFarias/Trabalho_2_EDA.git
 */
 
+/*
+    Por motivos de arquitetura a opção 2 já mostra os fatores de balanceamento
+*/
 int main(int argc, char const *argv[])
 {
     int option;
