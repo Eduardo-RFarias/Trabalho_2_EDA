@@ -103,14 +103,14 @@ Abp::Node *Abp::balance(Node *temp)
 
     if (bal_factor > 1)
     {
-        if (bal_factor > 0)
+        if (diff(temp->left) > 0)
             temp = rotateLL(temp);
         else
             temp = rotateLR(temp);
     }
     else if (bal_factor < -1)
     {
-        if (bal_factor > 0)
+        if (diff(temp->right) > 0)
             temp = rotateRL(temp);
         else
             temp = rotateRR(temp);
