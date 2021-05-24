@@ -30,6 +30,7 @@ private:
     };
 
     Node *root;
+    bool avl;
 
     /**
     * @brief Função recursiva para apagar os nós alocados
@@ -93,10 +94,11 @@ private:
 
 public:
     /**
-    * @brief Construct a new Abp:: Abp object
-    * 
-    */
-    Abp();
+     * @brief Construct a new Abp object
+     * 
+     * @param avl 
+     */
+    Abp(bool avl = true);
 
     /**
     * @brief Destroy the Abp:: Abp object

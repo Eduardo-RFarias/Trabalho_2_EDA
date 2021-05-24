@@ -16,7 +16,7 @@ private:
     void retorna();                  //Retornar a tela inicial
 
 public:
-    Abp arvoreAvl;
+    Abp arvoreAvl = Abp(true);
     void show();   //Mostra o menu
     void case_1(); // Gerar ABP
     void case_2(); // Calcular Fator de Balanceamento

@@ -1,8 +1,9 @@
 #include "Abp.hpp"
 
-Abp::Abp()
+Abp::Abp(bool avl)
 {
     this->root = NULL;
+    this->avl = avl;
 }
 
 Abp::~Abp()
@@ -48,12 +49,18 @@ Abp::Node *Abp::insert_(int value, Node *root)
     else if (value < root->value)
     {
         root->left = insert_(value, root->left);
-        root = balance(root);
+        if (avl)
+        {
+            root = balance(root);
+        }
     }
     else if (value >= root->value)
     {
         root->right = insert_(value, root->right);
-        root = balance(root);
+        if (avl)
+        {
+            root = balance(root);
+        }
     }
     return root;
 }
