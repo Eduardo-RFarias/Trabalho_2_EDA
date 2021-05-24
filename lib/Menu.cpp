@@ -1,5 +1,15 @@
 #include "Menu.hpp"
 
+Menu::Menu(bool avl)
+{
+    this->arvoreAvl = new Abp(avl);
+}
+
+Menu::~Menu()
+{
+    delete[] this->arvoreAvl;
+}
+
 void Menu::show() // Imprime Menu
 {
 
@@ -60,9 +70,9 @@ void Menu::retorna() //Pausa o terminal ate que o usuario aperte enter e volte a
 
 void Menu::case_1() // Gerar ABP
 {
-    if (!arvoreAvl.isEmpty())
+    if (!(*arvoreAvl).isEmpty())
     {
-        arvoreAvl.reset();
+        (*arvoreAvl).reset();
     }
 
     string nomeArq;
@@ -89,7 +99,7 @@ void Menu::case_1() // Gerar ABP
         }
     } while (true);
 
-    tr.gerarAVL(this->arvoreAvl);
+    tr.gerarAVL(*arvoreAvl);
 
     retorna();
 }
@@ -100,7 +110,7 @@ void Menu::case_2() // Calcular Fator de Balanceamento
     printTitulo("Calcular Fator de Balanceamento");
     cout << '\t' << "Fator de Balanceamento (Valor:FatBal) : \n"
          << endl;
-    arvoreAvl.updateBalFactor();
+    (*arvoreAvl).updateBalFactor();
     retorna();
 }
 
@@ -108,6 +118,6 @@ void Menu::case_3() // Imprimir ABP
 {
     clear();
     printTitulo("Imprimir ABP");
-    arvoreAvl.displayTree();
+    (*arvoreAvl).displayTree();
     retorna();
 }
